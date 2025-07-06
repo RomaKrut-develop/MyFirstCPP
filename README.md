@@ -22,17 +22,21 @@
 
 ```cpp
 #include <iostream>
-#include <string>       // Для std::string
-#include <windows.h>    // Для SetConsoleOutputCP (если Windows)
+#include <string> // Для std::string
+#include <windows.h> // Для SetConsoleOutputCP (если Windows)
+#include <ctime>    // Для time()
+
 using namespace std;
 
-int main(){
+int main() {
     SetConsoleOutputCP(CP_UTF8);
-    std::cout << "Привет, мир" << endl; // выводим текст на русском
+    srand(time(NULL));
 
-    std::cout << "Программа выполнилась. Нажмите Enter для выхода...\n";
-    std::cin.ignore();  // Очистка буфера (если перед этим был ввод)
-    std::cin.get();     // Ожидание нажатия Enter
+    short result = 1 + rand() % 100; // задаем параметры генерации случайного числа
+    cout << result; // выводим результат математических операций 
+    cout << "Привет, мир" << endl; // выводим текст на русском
+    cout << "Программа выполнилась. Нажмите Enter для выхода...\n";
+    cin.get(); // Ожидание нажатия Enter
     return 0; // Закрытие программы
 }
 ```
